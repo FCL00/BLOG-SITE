@@ -8,10 +8,11 @@
     <main class="center-form container mt-5 px-5 text-light">
         <section class="login-form">
             <form action="">
+                @csrf
                 <h1>Login </h1>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label class="text-dark" for="floatingInput">Email address</label>
+                    <input type="text" class="form-control" id="floatingInput" placeholder="username">
+                    <label class="text-dark" for="floatingInput">Username</label>
                 </div>
                 <div class="form-floating mb-1">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password">

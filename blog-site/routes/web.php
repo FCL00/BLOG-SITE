@@ -20,5 +20,9 @@ Route::get('/', [UserController::class, "HomePage"])
 Route::get('/login', [UserController::class, "LoginPage"])
     ->name('login.page');
 
-Route::get('/register', [UserController::class, 'Register'])
+    
+Route::get('/register', [UserController::class, 'ViewRegister'])
     ->name('register.page');
+
+Route::post('/registeruser', [UserController::class, 'RegisterUser'] )
+    ->name('register.user');
