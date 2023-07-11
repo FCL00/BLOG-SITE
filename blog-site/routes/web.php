@@ -26,3 +26,9 @@ Route::get('/register', [UserController::class, 'ViewRegister'])
 
 Route::post('/registeruser', [UserController::class, 'RegisterUser'] )
     ->name('register.user');
+
+Route::post('/loginuser', [UserController::class, 'LoginUser'] )
+    ->name('login.user');
+
+Route::get('/dashboard', [UserController::class, 'Dashboard'])
+    ->name('dashboard.page');

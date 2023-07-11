@@ -16,16 +16,32 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- all the link are here for differnt types of users -->
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link"  href="/login"><i class="fa-solid fa-user me-1"></i>Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/register"><i class="fa-sharp fa-solid fa-right-from-bracket me-1"></i>Register</a>
-                    </li>
-                </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+                @auth
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link"  href="/"><i class="fa-solid fa-magnifying-glass me-1"></i>Search</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="/"><i class="fa-solid fa-message me-1"></i>Messages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="/"><i class="fa-solid fa-user me-1"></i>Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="/"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i>Logout</a>
+                        </li>
+                    </ul>
+                @else
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link"  href="/login"><i class="fa-solid fa-user me-1"></i>Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register"><i class="fa-sharp fa-solid fa-right-from-bracket me-1"></i>Register</a>
+                        </li>
+                    </ul>
+                @endauth
             </div>
         </div>
     </nav>
