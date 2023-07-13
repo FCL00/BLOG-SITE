@@ -13,7 +13,12 @@ a{
     color: white;
 }
 
-.home-content p
+a:hover{
+    color: #C8C6C6 ;
+}
+
+.home-content p,
+.post-content h5
 {
     text-indent: 50px;
     text-align: justify;
@@ -26,3 +31,17 @@ a{
 }
 
 
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.avatar-img
+{
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}

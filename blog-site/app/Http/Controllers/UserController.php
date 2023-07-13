@@ -38,8 +38,9 @@ class UserController extends Controller
             'password' => ['required', 'min:8', 'confirmed']
         ]);
 
-        User::create($incomingField);
-        return redirect()->route('login.page');
+        $user = User::create($incomingField);
+        auth()->login($user);
+        return redirect()->route('home.index')->with('success', 'New account is successfully created');
     }
     
     public function Dashboard()
@@ -49,7 +50,7 @@ class UserController extends Controller
             return view('dashboard');
         } 
         else{
-            return redirect()->route('login.user');
+            return redirect()->route('login.page');
         }
       
     }
@@ -67,7 +68,13 @@ class UserController extends Controller
             $request->session()->regenerate();
             return redirect()->route('dashboard.page');
         }else{
-            return 'Sorry';
+            return redirect()->route('login.page')->with('error', 'Incorrect Username or Password');
         }
+    }
+
+    public function Logout()
+    {
+        auth()->logout();
+        return redirect()->route('dashboard.page');
     }
 }

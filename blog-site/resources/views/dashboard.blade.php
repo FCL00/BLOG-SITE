@@ -8,7 +8,7 @@
 @section('content')
     <main class="container mt-5 p-5">
         <section class="home-content text-light">
-            <h1>Welcome to {{ auth()->user()->username}}</h1>
+            <h1>Welcome {{ auth()->user()->username}}</h1>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque beatae nam vero voluptate vel rerum molestias sit ipsa et quos, 
                     quia nisi nihil. A ut dicta quisquam quasi, soluta culpa perferendis! Quod magnam dolorum necessitatibus quos asperiores natus 
