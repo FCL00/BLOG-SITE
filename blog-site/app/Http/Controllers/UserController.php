@@ -64,4 +64,14 @@ class UserController extends Controller
         auth()->logout();
         return redirect()->route('home.index');
     }
+
+
+    //Profile
+    public function ViewProfile(User $user) //type hinting
+    {
+        // $user is an instance of user model
+        // posts() is a function i defined inside the User model
+        $UserPosts = $user->posts()->get();
+        return view('profile', ['username' => $user->username, 'posts' => $user->posts()->latest()->get(), 'postCount' => $user->posts()->count()]);
+    }
 }

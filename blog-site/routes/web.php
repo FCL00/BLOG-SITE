@@ -43,6 +43,13 @@ Route::get('/logout', [UserController::class, 'Logout'])
     ->name('logout.user');
 
 
+// Profile Routes
+// specify which column where are going to access on the user model
+// i am using type hinting on this route
+Route::get('/profile/{user:username}', [UserController::class, 'ViewProfile'])
+    ->middleware('MustBeLoggedIn')
+    ->name('profile.page');
+
 //Blog Post Routes
 Route::get('/create-post', [PostController::class, 'showCreateForm'])
     ->middleware('MustBeLoggedIn')

@@ -27,7 +27,7 @@
                                 <a class="nav-link"  href="/"><i class="fa-regular fa-message me-1"></i>Messages</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="/"><i class="fa-regular fa-user me-1"></i>Profile</a>
+                                <a class="nav-link"  href="/profile/{{auth()->user()->username}}"><i class="fa-regular fa-user me-1"></i>Profile</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"  href="/create-post"><i class="fa-regular fa-square-plus me-1"></i>Create Post</a>
