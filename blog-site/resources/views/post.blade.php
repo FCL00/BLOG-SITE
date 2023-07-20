@@ -23,7 +23,7 @@
             </div>
             <hr>
             <div class="post-content">
-                <h5>{{ $post->body }}</h5>
+                <p>{!! $post->body !!}</p>
             </div>  
         </section>
     </main>

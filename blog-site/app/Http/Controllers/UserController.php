@@ -11,13 +11,7 @@ class UserController extends Controller
     //
     public function HomePage()
     {
-        // check if the user is login or not
-        if( auth()->check()){
-            return view('dashboard');
-        } 
-        else{
-            return view('home');
-        }
+        return view('home');
     }
 
     public function LoginPage()
@@ -39,20 +33,13 @@ class UserController extends Controller
         ]);
 
         $user = User::create($incomingField);
-        auth()->login($user);
+        auth()->login($user); //login the user || save the session when after registration
         return redirect()->route('home.index')->with('success', 'New account is successfully created');
     }
     
     public function Dashboard()
     {
-        // check if the user is login or not
-        if( auth()->check()){
-            return view('dashboard');
-        } 
-        else{
-            return redirect()->route('login.page');
-        }
-      
+        return view('dashboard');
     }
    
     public function LoginUser(Request $request)
@@ -75,6 +62,6 @@ class UserController extends Controller
     public function Logout()
     {
         auth()->logout();
-        return redirect()->route('dashboard.page');
+        return redirect()->route('home.index');
     }
 }

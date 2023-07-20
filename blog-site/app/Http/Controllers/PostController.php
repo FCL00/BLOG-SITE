@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,9 +15,9 @@ class PostController extends Controller
     }
 
     
-    public function viewSinglePost(Post $post)
+    public function viewSinglePost(Post $post) //type hinting
     {
-       
+        $post['body'] = Str::markdown($post->body);
         return view('post', ['post' => $post]);
     }
 
@@ -37,6 +38,7 @@ class PostController extends Controller
 
         $newPost = Post::create($incomingFields);
 
+        //in newPost object look for id
         return redirect("/post/{$newPost->id}")->with('success', 'Post is successfully created');
     }
 

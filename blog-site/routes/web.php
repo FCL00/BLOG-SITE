@@ -20,18 +20,23 @@ Route::get('/', [UserController::class, "HomePage"])
     ->name('home.index');
 
 Route::get('/login', [UserController::class, "LoginPage"])
+    ->middleware('guest')
     ->name('login.page');
+    // ->name('login.page'); 
 
 Route::get('/register', [UserController::class, 'ViewRegister'])
+    ->middleware('guest')
     ->name('register.page');
 
 Route::post('/registeruser', [UserController::class, 'RegisterUser'] )
     ->name('register.user');
 
 Route::post('/loginuser', [UserController::class, 'LoginUser'] )
+    ->middleware('guest')
     ->name('login.user');
 
 Route::get('/dashboard', [UserController::class, 'Dashboard'])
+    ->middleware('MustBeLoggedIn')
     ->name('dashboard.page');
 
 Route::get('/logout', [UserController::class, 'Logout'])
@@ -40,11 +45,16 @@ Route::get('/logout', [UserController::class, 'Logout'])
 
 //Blog Post Routes
 Route::get('/create-post', [PostController::class, 'showCreateForm'])
+    ->middleware('MustBeLoggedIn')
     ->name('post.show');
 
 Route::post('/create-post', [PostController::class, 'storeNewPost'])
+    ->middleware('MustBeLoggedIn')    
     ->name('post.store'); 
 
 Route::get('/post/{post}', [PostController::class, 'viewSinglePost'])
+    ->middleware('MustBeLoggedIn')
     ->where(['post' => '[0-9]+'])
     ->name('single.post'); 
+
+
