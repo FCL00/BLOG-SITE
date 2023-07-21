@@ -15,6 +15,7 @@ class Post extends Model
     //relationship
     public function user()
     {
+        //on this post belongs to this user_id or to this user
         return $this->belongsTo(User::class, 'user_id');
     }
 }

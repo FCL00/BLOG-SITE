@@ -64,4 +64,6 @@ Route::get('/post/{post}', [PostController::class, 'viewSinglePost'])
     ->where(['post' => '[0-9]+'])
     ->name('single.post'); 
 
+Route::delete('/post/{post}', [PostController::class, 'Delete']);
+
 
