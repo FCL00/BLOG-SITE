@@ -16,13 +16,11 @@
                 <div class="col-2">
                     @can('update', $post)
                         <div class="d-flex justify-content-end">
-                            <a href="#" class="btn btn-outline-warning me-1 shadow-none"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href="/post/{{$post->id}}/edit" class="btn btn-outline-warning me-1 shadow-none"><i class="fa-regular fa-pen-to-square"></i></a>
                             <form action="/post/{{$post->id}}" method="POST">
                                 @csrf
-                                @method('DELETE')
-                                <button  class="btn btn-outline-danger me-1  shadow-none"> 
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
+                                    @method('DELETE')
+                                    <button  class="btn btn-outline-danger me-1  shadow-none"><i class="fa-solid fa-trash-can"></i></button>
                             </form>
                             {{-- <a href="#" class="btn btn-outline-primary  shadow-none"><i class="fa-solid fa-box-archive"></i></a> --}}
                         </div>
